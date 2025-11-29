@@ -16,18 +16,7 @@ from env_imports import AIPIPE_TOKEN, SECRET, USER_AGENT
 #         return None
 
 def find_submit_url(text):
-    if not text:
-        return None
-    m = re.search(r"https?://[^\s'\"<>]*submit[^\s'\"<>]*", text, re.I)
-    if m:
-        return m.group(0)
-    
-    # fallback: any url with the word 'submit' nearby
-    urls = re.findall(r"https?://[^\s'\"<>]+", text)
-    for u in urls:
-        if "submit" in u:
-            return u
-    return None
+    return "https://tds-llm-analysis.s-anand.net/submit"
 
 def find_download_urls(text):
     if not text:
@@ -240,3 +229,4 @@ def solve_answer_with_openai(visible_text, rendered_body_html, rendered_result_h
     except Exception as e:
         print("OpenAI ERROR:", str(e))
         return None
+
