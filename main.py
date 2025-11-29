@@ -14,15 +14,15 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from playwright.sync_api import sync_playwright
 
 # Import helper functions
-from .helpers import (
+from helpers import (
     find_submit_url, find_download_urls, extract_base64_from_atob_js,
     post_answer, solve_answer_with_openai
 )
 
 # Import environment variables
-from .helpers import (USER_AGENT, SECRET)
+from helpers import (USER_AGENT, SECRET)
 
-# from .helpers import (safe_json, download_file, remove_temp_file)
+# from helpers import (safe_json, download_file, remove_temp_file)
 
 app = FastAPI(
     title="LLM Quiz Analysis API for TDS Project",
@@ -287,3 +287,4 @@ async def quiz_handler(request: Request, payload: QuizPayload):
         tb = traceback.format_exc()
         print("Unhandled exception in /api/solve:\n", tb)
         raise HTTPException(status_code=500, detail="internal_error")
+
