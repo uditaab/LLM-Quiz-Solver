@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+playwright
+requests
+pydantic
+python-multipart
+pdfplumber
+pandas
+numpy
